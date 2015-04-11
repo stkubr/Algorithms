@@ -4,10 +4,10 @@
 
 #include "QuickUnion.h"
 
-C_QuickUnion::C_QuickUnion(unsigned int numElements) : C_SlowUnion(numElements) {
+C_QuickUnion::C_QuickUnion(unsigned int numElements) : C_TrivialUnion(numElements) {
 }
 
-C_QuickUnion::C_QuickUnion(std::vector<unsigned int> *_IDs_ptr) : C_SlowUnion(_IDs_ptr) {
+C_QuickUnion::C_QuickUnion(std::vector<unsigned int> *_IDs_ptr) : C_TrivialUnion(_IDs_ptr) {
 }
 
 unsigned int C_QuickUnion::findRoot(unsigned int inx) {
