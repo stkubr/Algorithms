@@ -8,18 +8,18 @@
 #include <vector>
 #include "Union.h"
 
-class C_SlowUnion: public C_Union {
+class C_TrivialUnion : public C_Union {
 protected:
     std::vector<unsigned int> *IDs_raw_ptr;
     bool ifVectorAllocated;
     void setInitialIDs();
 
 public:
-    C_SlowUnion(unsigned int numElements);
+    C_TrivialUnion(unsigned int numElements);
 
-    C_SlowUnion(std::vector<unsigned int> * _IDs_ptr);
+    C_TrivialUnion(std::vector<unsigned int> * _IDs_ptr);
 
-    ~C_SlowUnion();
+    virtual ~C_TrivialUnion();
 
     virtual bool areConnected(unsigned int inx1, unsigned int inx2);
 
