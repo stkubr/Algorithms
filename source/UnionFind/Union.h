@@ -6,7 +6,6 @@
 #define ALGORITHMS_UNION_H
 
 #include <vector>
-#include <memory>
 
 class C_Union {
 public:
