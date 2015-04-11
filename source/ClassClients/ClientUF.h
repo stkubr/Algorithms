@@ -14,8 +14,8 @@ class C_ClientUF {
 public:
     C_ClientUF();
 
-    void testUnionFind();
-
+    void testSlowUnionFind();
+    void testQuickUnionFind();
 };
 
 
