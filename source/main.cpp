@@ -8,6 +8,6 @@ int main() {
     cout << "Algorithms Library presentation" << endl;
     cout << "QuickFind example:" << endl;
     C_ClientUF clientUF;
-    clientUF.testSlowUnionFind();
-    clientUF.testQuickUnionFind();
+    clientUF.test();
+
 }

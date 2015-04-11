@@ -4,47 +4,33 @@
 
 #include <iostream>
 #include "ClientUF.h"
-#include "../UnionFind/SlowUnion.h"
-#include "../UnionFind/QuickUnion.h"
 
 C_ClientUF::C_ClientUF() {
     numElements = 10;
-    IDs =  {1,1,1,8,3,0,5,1,8,8};
+    IDs =  {0,1,2,3,4,5,6};
 }
 
-void C_ClientUF::testSlowUnionFind(){
-    std::shared_ptr<C_Union> slowUnion(new C_SlowUnion(numElements));
+void C_ClientUF::testUnionFind(C_Union & unionFind){
     std::cout << "Show the default initial ID vector" << std::endl;
-    slowUnion->showIDs();
+    unionFind.showIDs();
     std::cout << "connect(1,2)" << std::endl;
-    slowUnion->connect(1,2);
+    unionFind.connect(1,2);
     std::cout << "connect(2,8)" << std::endl;
-    slowUnion->connect(2,8);
+    unionFind.connect(2,8);
     std::cout << "Show the ID vector" << std::endl;
-    slowUnion->showIDs();
-    std::cout << "Check if 1 and 8 are connected - " << slowUnion->areConnected(1,8) << std::endl;
-
-    std::cout << "Replace the ID vector with externaly provided" << std::endl;
-    slowUnion->setIDs(&IDs);
-    slowUnion->showIDs();
-    std::cout << "Check if 0 and 2 are connected - " << slowUnion->areConnected(0,2) << std::endl;
-    std::cout << std::endl;
+    unionFind.showIDs();
+    std::cout << "Check if 1 and 8 are connected - " << unionFind.areConnected(1,8) << std::endl;
 }
 
-void C_ClientUF::testQuickUnionFind() {
-    std::shared_ptr<C_Union> quickUnion(new C_QuickUnion(numElements));
-    std::cout << "Show the default initial ID vector" << std::endl;
-    quickUnion->showIDs();
-    std::cout << "connect(1,2)" << std::endl;
-    quickUnion->connect(1,2);
-    std::cout << "connect(2,8)" << std::endl;
-    quickUnion->connect(2,8);
-    std::cout << "Show the ID vector" << std::endl;
-    quickUnion->showIDs();
-    std::cout << "Check if 1 and 8 are connected - " << quickUnion->areConnected(1,8) << std::endl;
+void C_ClientUF::test() {
+    C_TrivialUnion trivialUnion(numElements);
+    C_QuickUnion quickUnion(numElements);
+    C_WeightedQuickUnion weightedQuickUnion(numElements);
 
-    std::cout << "Replace the ID vector with externaly provided" << std::endl;
-    quickUnion->setIDs(&IDs);
-    quickUnion->showIDs();
-    std::cout << "Check if 0 and 5 are connected - " << quickUnion->areConnected(0,5) << std::endl;
+    std::cout << "Connecting via C_TrivialUnion" << std::endl;
+    testUnionFind(trivialUnion);
+    std::cout << std::endl << "Connecting via C_QuickUnion" << std::endl;
+    testUnionFind(quickUnion);
+    std::cout << std::endl << "Connecting via C_WeightedQuickUnion" << std::endl;
+    testUnionFind(weightedQuickUnion);
 }

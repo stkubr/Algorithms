@@ -7,15 +7,18 @@
 
 #include <vector>
 #include <memory>
+#include "../UnionFind/TrivialUnion.h"
+#include "../UnionFind/QuickUnion.h"
+#include "../UnionFind/WeightedQuickUnion.h"
 
 class C_ClientUF {
     unsigned int numElements;
     std::vector<unsigned int> IDs;
+    void testUnionFind(C_Union & unionFind);
 public:
     C_ClientUF();
 
-    void testSlowUnionFind();
-    void testQuickUnionFind();
+    void test();
 };
 
 
