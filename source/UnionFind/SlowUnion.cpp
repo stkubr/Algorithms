@@ -22,7 +22,7 @@ C_SlowUnion::C_SlowUnion(std::vector<unsigned int> * _IDs_ptr) {
 }
 
 C_SlowUnion::~C_SlowUnion() {
-    if (ifVectorAllocated) delete [] IDs_raw_ptr;
+    if (ifVectorAllocated) delete IDs_raw_ptr;
 }
 
 void C_SlowUnion::setInitialIDs() {
@@ -48,13 +48,13 @@ void C_SlowUnion::connect(unsigned int inx1, unsigned int inx2) {
 void C_SlowUnion::showIDs() {
     if (IDs_raw_ptr->size()>0)
         for (unsigned int i = 0; i < IDs_raw_ptr->size(); ++i) {
-            std::cout << IDs_raw_ptr->at(i) << std::endl;
+            std::cout << IDs_raw_ptr->at(i) << " ";
         }
     std::cout << std::endl;
 }
 
 void C_SlowUnion::setIDs(std::vector<unsigned int> * _IDs_ptr) {
-    if(IDs_raw_ptr) delete [] IDs_raw_ptr; // delete the previous IDs if were allocated
+    if(IDs_raw_ptr) { delete IDs_raw_ptr;  ifVectorAllocated = false;} // delete the previous IDs if were allocated
     IDs_raw_ptr = _IDs_ptr;
 }
 

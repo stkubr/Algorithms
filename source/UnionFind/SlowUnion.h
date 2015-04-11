@@ -6,11 +6,10 @@
 #define ALGORITHMS_SLOWUNION_H
 
 #include <vector>
-#include <memory>
 #include "Union.h"
 
 class C_SlowUnion: public C_Union {
-private:
+protected:
     std::vector<unsigned int> *IDs_raw_ptr;
     bool ifVectorAllocated;
     void setInitialIDs();
@@ -22,9 +21,9 @@ public:
 
     ~C_SlowUnion();
 
-    bool areConnected(unsigned int inx1, unsigned int inx2);
+    virtual bool areConnected(unsigned int inx1, unsigned int inx2);
 
-    void connect(unsigned int inx1, unsigned int inx2);
+    virtual void connect(unsigned int inx1, unsigned int inx2);
 
     void showIDs();
 
