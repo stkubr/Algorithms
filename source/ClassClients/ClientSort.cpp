@@ -10,12 +10,19 @@
 C_ClientSort::C_ClientSort(int N) {
     numElements = N;
     data.resize(numElements);
-    std::generate(data.begin(),data.end(), [](){return uniformDistribution(generator);});
+
+    std::default_random_engine gen;
+    std::uniform_real_distribution<double> uniDist(0.0,1.0);
+
+    std::generate(data.begin(),data.end(), [&uniDist,&gen](){return uniDist(gen);});
 }
 
 void C_ClientSort::show() {
     for (auto x: data){
-        std::setprecision(16);
-        std::cout << x << std::endl;
+        std::cout << std::setprecision(16) << x << std::endl;
     }
+}
+
+void C_ClientSort::sort(C_Sort &sortEngine) {
+    sortEngine.sort(data);
 }
