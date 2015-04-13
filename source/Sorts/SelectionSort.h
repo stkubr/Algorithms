@@ -15,7 +15,7 @@ protected:
     bool less(double v, double w);
 
 public:
-    void sort(std::vector<double> & data);
+    virtual void sort(std::vector<double> & data);
 
 };
 

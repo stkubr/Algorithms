@@ -14,5 +14,5 @@ int main() {
  */
 
     C_ClientSort clientSort(10);
-    clientSort.show();
+    clientSort.testAllSorts();
 }
