@@ -10,8 +10,7 @@
 
 class C_Sort {
 public:
-    void sort(std::vector<double> & data) {}
+    virtual void sort(std::vector<double> & data)=0;
 };
-
 
 #endif //ALGORITHMS_SORT_H
