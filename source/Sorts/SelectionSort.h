@@ -6,10 +6,11 @@
 #define ALGORITHMS_SELECTIONSORT_H
 
 #include <vector>
+#include "Sort.h"
 
-class C_SelectionSort {
+class C_SelectionSort: public C_Sort {
 protected:
-    void exchange(double, double);
+    void exchange(std::vector<double> &data, int i, int j);
 
     bool less(double v, double w);
 
