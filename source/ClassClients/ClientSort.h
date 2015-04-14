@@ -7,9 +7,17 @@
 
 #include <vector>
 #include <random>
-#include "../Sorts/Sort.h"
+
+#include "../Sorts/InsertionSort.h"
+#include "../Sorts/ShellSort.h"
+#include "../Sorts/Shuffle.h"
+
 
 class C_ClientSort {
+private:
+    void createData();
+    C_Shuffle shuffle;
+
 public:
     int numElements;
     std::vector<double> data;
@@ -20,8 +28,7 @@ public:
 
     void sort(C_Sort & sortEngine);
 
-    void testAllSorts(){}
-
+    void testAllSorts();
 };
 
 
