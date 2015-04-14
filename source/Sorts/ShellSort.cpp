@@ -14,9 +14,7 @@ void C_ShellSort::sort(std::vector<double> &data) {
 
     for (auto gap: seq) {
         for (int i = gap; i < numElements; ++i) {
-            std::cout << i << std::endl;
             for (int j = i; j >= gap && less(data[j],data[j-gap]) ; j -= gap) {
-                std::cout <<  " " << j << std::endl;
                 exchange(data,j,j-gap);
             }
         }
