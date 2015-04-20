@@ -9,8 +9,10 @@
 #include "../Sorts/SelectionSort.h"
 #include "../Sorts/InsertionSort.h"
 #include "../Sorts/ShellSort.h"
+#include <source/Sorts/MergeSort.h>
 #include "../Sorts/Shuffle.h"
 #include <algorithm>
+
 
 C_ClientSort::C_ClientSort(int N) {
     numElements = N;
@@ -56,5 +58,11 @@ void C_ClientSort::testAllSorts() {
     show();
     C_ShellSort<std::vector<double>> sortEngine3;
     sort(sortEngine3);
+    show();
+
+    C_Shuffle<std::vector<double>>::shuffle(data);
+    show();
+    C_MergeSort<std::vector<double>> sortEngine4;
+    sort(sortEngine4);
     show();
 }
