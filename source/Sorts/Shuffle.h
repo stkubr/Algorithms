@@ -10,15 +10,15 @@
 #include <random>
 #include <algorithm>
 
-class C_Shuffle {
+template<typename data_t> class C_Shuffle {
 private:
-    static void exchange(std::vector<double> &data, int i, int j) {
+    static void exchange(data_t &data, int i, int j) {
         double temp = data[i];
         data[i] = data[j];
         data[j] = temp;
     }
 public:
-    static void shuffle(std::vector<double> &data){
+    static void shuffle(data_t &data){
         std::random_device rd;
         std::mt19937 gen(rd());
 

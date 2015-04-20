@@ -5,12 +5,12 @@
 #ifndef ALGORITHMS_SORT_H
 #define ALGORITHMS_SORT_H
 
-
 #include <vector>
+#include <functional>
 
-class C_Sort {
+template<typename data_t> class C_Sort {
 public:
-    virtual void sort(std::vector<double> & data)=0;
+    virtual void sort(data_t & data, std::function<bool(data_t &, int , int)> comparator)=0;
 };
 
 #endif //ALGORITHMS_SORT_H

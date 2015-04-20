@@ -8,15 +8,26 @@
 #include <vector>
 #include "Sort.h"
 
-class C_SelectionSort: public C_Sort {
+template<typename data_t> class C_SelectionSort: public C_Sort<data_t> {
 protected:
-    void exchange(std::vector<double> &data, int i, int j);
-
-    bool less(double v, double w);
+    void exchange(data_t &data, int i, int j){
+        auto temp = data[i];
+        data[i] = data[j];
+        data[j] = temp;
+    }
 
 public:
-    virtual void sort(std::vector<double> & data);
-
+    virtual void sort(data_t & data, std::function<bool(data_t &, int , int)>  comparator){
+        int numElements = data.size();
+        for (int i = 0; i < numElements; i++) {
+            int min = i;
+            for (int j = i+1; j < numElements; j++) {
+                if (comparator(data,j,min))
+                    min = j;
+            }
+            exchange(data,i,min);
+        }
+    }
 };
 
 
