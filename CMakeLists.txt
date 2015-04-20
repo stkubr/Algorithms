@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.1)
 project(Algorithms)
 
 #Set CFLAGs
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fopenmp -O3")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=c++11 -fopenmp -O3")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++11 -fopenmp -g -Wall")
 
 #Set LFLAGs
 set (CMAKE_EXE_LINKER_FLAGS -fopenmp )
