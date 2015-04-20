@@ -29,26 +29,27 @@ void C_ClientSort::show() {
     std::cout << std::endl;
 }
 
-void C_ClientSort::sort(C_Sort &sortEngine) {
-    sortEngine.sort(data);
+void C_ClientSort::sort(C_Sort<std::vector<double>> &sortEngine) {
+    auto double_comparator = [](std::vector<double> & data, int i, int j) {return (data[i] < data[j]);};
+    sortEngine.sort(data, double_comparator);
 }
 
 void C_ClientSort::testAllSorts() {
     shuffle.shuffle(data);
     show();
-    C_SelectionSort sortEngine1;
+    C_SelectionSort<std::vector<double>> sortEngine1;
     sort(sortEngine1);
     show();
 
     shuffle.shuffle(data);
     show();
-    C_InsertionSort sortEngine2;
+    C_InsertionSort<std::vector<double>> sortEngine2;
     sort(sortEngine2);
     show();
 
     shuffle.shuffle(data);
     show();
-    C_ShellSort sortEngine3;
+    C_ShellSort<std::vector<double>> sortEngine3;
     sort(sortEngine3);
     show();
 }

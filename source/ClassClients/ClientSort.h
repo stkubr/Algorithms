@@ -26,7 +26,7 @@ public:
 
     void show();
 
-    void sort(C_Sort & sortEngine);
+    void sort(C_Sort<std::vector<double>> & sortEngine);
 
     void testAllSorts();
 };
