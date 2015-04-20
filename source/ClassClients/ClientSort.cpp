@@ -3,9 +3,14 @@
 //
 
 #include "ClientSort.h"
-#include <algorithm>
 #include <iostream>
 #include <iomanip>
+#include <random>
+#include "../Sorts/SelectionSort.h"
+#include "../Sorts/InsertionSort.h"
+#include "../Sorts/ShellSort.h"
+#include "../Sorts/Shuffle.h"
+#include <algorithm>
 
 C_ClientSort::C_ClientSort(int N) {
     numElements = N;
@@ -35,19 +40,19 @@ void C_ClientSort::sort(C_Sort<std::vector<double>> &sortEngine) {
 }
 
 void C_ClientSort::testAllSorts() {
-    shuffle.shuffle(data);
+    C_Shuffle<std::vector<double>>::shuffle(data);
     show();
     C_SelectionSort<std::vector<double>> sortEngine1;
     sort(sortEngine1);
     show();
 
-    shuffle.shuffle(data);
+    C_Shuffle<std::vector<double>>::shuffle(data);
     show();
     C_InsertionSort<std::vector<double>> sortEngine2;
     sort(sortEngine2);
     show();
 
-    shuffle.shuffle(data);
+    C_Shuffle<std::vector<double>>::shuffle(data);
     show();
     C_ShellSort<std::vector<double>> sortEngine3;
     sort(sortEngine3);

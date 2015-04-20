@@ -6,17 +6,11 @@
 #define ALGORITHMS_CLIENTSORT_H
 
 #include <vector>
-#include <random>
-
-#include "../Sorts/InsertionSort.h"
-#include "../Sorts/ShellSort.h"
-#include "../Sorts/Shuffle.h"
-
+#include "../Sorts/Sort.h"
 
 class C_ClientSort {
 private:
     void createData();
-    C_Shuffle shuffle;
 
 public:
     int numElements;
