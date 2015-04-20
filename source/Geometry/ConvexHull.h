@@ -12,16 +12,12 @@
 typedef std::vector<C_Point2D > t_arrayPoints2D;
 
 class C_ConvexHull {
-    t_arrayPoints2D points2D;
-
-    void presortMinYPolar();
+    static void presortMinYPolar(t_arrayPoints2D & data);
 
 public:
-    C_ConvexHull(int);
+    static std::stack<C_Point2D> calcHull(t_arrayPoints2D & data);
 
-    std::stack<C_Point2D> calcHull();
-
-    void show();
+    static void show(t_arrayPoints2D & data);
 };
 
 
