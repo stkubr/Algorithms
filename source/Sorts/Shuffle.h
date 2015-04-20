@@ -5,7 +5,6 @@
 #ifndef ALGORITHMS_SHUFFLE_H
 #define ALGORITHMS_SHUFFLE_H
 
-
 #include <vector>
 #include <random>
 #include <algorithm>
@@ -21,10 +20,7 @@ public:
     static void shuffle(data_t &data){
         std::random_device rd;
         std::mt19937 gen(rd());
-
-        int numElements = data.size();
-
-        for (int i = 0; i < numElements; ++i) {
+        for (int i = 0; i < data.size(); ++i) {
             std::uniform_int_distribution<> uniDist(0,i);
             int inx_swap = uniDist(gen);
             exchange(data,i,inx_swap);
