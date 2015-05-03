@@ -13,6 +13,7 @@
 #include "../Sorts/Shuffle.h"
 #include <algorithm>
 #include <source/Sorts/QuickSort.h>
+#include <source/Sorts/QuickSelect.h>
 
 
 C_ClientSort::C_ClientSort(int N) {
@@ -77,4 +78,10 @@ void C_ClientSort::testAllSorts() {
     C_QuickSort<std::vector<double>> sortEngine5;
     sort(sortEngine5);
     show();
+
+    auto double_comparator = [](std::vector<double> & data, int i, int j) {return (data[i] < data[j]);};
+    double elem = C_QuickSelect<std::vector<double>>::select(data, double_comparator, 4);
+    std::cout << elem << std::endl << std::endl;
+    show();
+
 }
