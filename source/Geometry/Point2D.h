@@ -60,6 +60,7 @@ public:
         if (a.x > 0) return atan(a.y/a.x);
         if (a.y > 0) return M_PI/2.0 - atan(a.x/a.y); // arccot
         if (a.y < 0) return -M_PI/2.0 - atan(a.x/a.y); // arccot
+        else return 0;
     }
 
     double X(){return C_Point2D::x;}
