@@ -10,7 +10,7 @@
 
 template<typename data_t> class C_QuickSort: public C_SelectionSort<data_t>{
 protected:
-    static int partition(data_t & data, std::function<bool(data_t &, int , int)>  comparator, int lo, int hi){
+    static int partition(data_t & data, std::function<bool(data_t &, int , int)> & comparator, int lo, int hi){
         int i = lo, j = hi + 1;
         for(;;){
             while (comparator(data, ++i, lo))
@@ -26,7 +26,7 @@ protected:
         return j;
     }
 
-    static void sort(data_t & data, std::function<bool(data_t &, int , int)>  comparator, int lo, int hi){
+    static void sort(data_t & data, std::function<bool(data_t &, int , int)> & comparator, int lo, int hi){
         if(hi <= lo) return;
         int j = partition(data, comparator, lo, hi);
         sort(data, comparator, lo, j-1);
