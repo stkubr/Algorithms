@@ -10,7 +10,7 @@
 
 template<typename data_t> class C_SelectionSort: public C_Sort<data_t> {
 protected:
-    void exchange(data_t &data, int i, int j){
+    static void exchange(data_t &data, int i, int j){
         auto temp = data[i];
         data[i] = data[j];
         data[j] = temp;
