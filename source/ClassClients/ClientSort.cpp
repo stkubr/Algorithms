@@ -12,6 +12,7 @@
 #include <source/Sorts/MergeSort.h>
 #include "../Sorts/Shuffle.h"
 #include <algorithm>
+#include <source/Sorts/QuickSort.h>
 
 
 C_ClientSort::C_ClientSort(int N) {
@@ -44,25 +45,36 @@ void C_ClientSort::sort(C_Sort<std::vector<double>> &sortEngine) {
 void C_ClientSort::testAllSorts() {
     C_Shuffle<std::vector<double>>::shuffle(data);
     show();
+    std::cout << "Selection Sort\n";
     C_SelectionSort<std::vector<double>> sortEngine1;
     sort(sortEngine1);
     show();
 
     C_Shuffle<std::vector<double>>::shuffle(data);
     show();
+    std::cout << "Insertion Sort\n";
     C_InsertionSort<std::vector<double>> sortEngine2;
     sort(sortEngine2);
     show();
 
     C_Shuffle<std::vector<double>>::shuffle(data);
     show();
+    std::cout << "Shell Sort\n";
     C_ShellSort<std::vector<double>> sortEngine3;
     sort(sortEngine3);
     show();
 
     C_Shuffle<std::vector<double>>::shuffle(data);
     show();
+    std::cout << "Merge Sort\n";
     C_MergeSort<std::vector<double>> sortEngine4;
     sort(sortEngine4);
+    show();
+
+    C_Shuffle<std::vector<double>>::shuffle(data);
+    show();
+    std::cout << "Quick Sort\n";
+    C_QuickSort<std::vector<double>> sortEngine5;
+    sort(sortEngine5);
     show();
 }
